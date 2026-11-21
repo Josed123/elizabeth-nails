@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+
+    <title>Thank You | Elizabeth Nails</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="confirmation-page">
+
+    <main class="confirmation-content">
+
+        <a href="index.html" class="brand">
+            <span class="brand-name">ELIZABETH</span>
+            <span class="brand-subtitle">NAILS STUDIO</span>
+        </a>
+
+        <div class="confirmation-card">
+
+            <p class="eyebrow"
+               data-en="ELIZABETH NAILS"
+               data-es="ELIZABETH NAILS">
+                ELIZABETH NAILS
+            </p>
+
+            <div class="confirmation-symbol">✓</div>
+
+            <h1 data-en="Thank You!"
+                data-es="¡Muchas Gracias!">
+                Thank You!
+            </h1>
+
+            <p class="confirmation-message"
+               data-en="Your appointment request has been received."
+               data-es="Hemos recibido tu solicitud de cita.">
+                Your appointment request has been received.
+            </p>
+
+            <p class="confirmation-detail"
+               data-en="Our team will review your request and contact you to discuss availability and confirm your appointment."
+               data-es="Nuestro equipo revisará tu solicitud y se comunicará contigo para consultar la disponibilidad y confirmar tu cita.">
+                Our team will review your request and contact you
+                to discuss availability and confirm your appointment.
+            </p>
+
+            <p class="confirmation-note"
+               data-en="Please remember: your appointment is not confirmed until you hear from us."
+               data-es="Recuerda: tu cita no estará confirmada hasta que recibas nuestra respuesta.">
+                Please remember: your appointment is not confirmed
+                until you hear from us.
+            </p>
+
+            <a href="index.html" class="gold-button"
+               data-en="RETURN TO WEBSITE"
+               data-es="VOLVER AL SITIO WEB">
+                RETURN TO WEBSITE
+            </a>
+
+        </div>
+
+        <button id="success-language-toggle"
+                class="language-button"
+                aria-label="Switch language">
+            ES
+        </button>
+
+    </main>
+
+    <script>
+        const languageButton = document.getElementById(
+            "success-language-toggle"
+        );
+
+        let currentLanguage = "en";
+
+        languageButton.addEventListener("click", function () {
+
+            currentLanguage = currentLanguage === "en" ? "es" : "en";
+
+            document.documentElement.lang = currentLanguage;
+
+            document.querySelectorAll("[data-en][data-es]")
+                .forEach(function (element) {
+                    element.textContent = element.getAttribute(
+                        `data-${currentLanguage}`
+                    );
+                });
+
+            languageButton.textContent =
+                currentLanguage === "en" ? "ES" : "EN";
+        });
+    </script>
+
+</body>
+</html>
